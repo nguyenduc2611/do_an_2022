@@ -138,7 +138,7 @@ def cap_picture(id_servo):
 				data = get_response.json()
 				print(palte+'hello2')
 				print((data['status']))
-			if data['status'] == 'OK'
+			if data['status'] == 'OK':
 				if(id_servo == 1):
 					servo = GPIO.PWM(17, 50)
 				else:
