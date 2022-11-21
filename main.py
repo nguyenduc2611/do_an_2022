@@ -124,29 +124,7 @@ def cap_picture(id_servo):
 		print("Detected Number is:",text)
 		if(len(text) > 6):
 			index_end = text.find('.', 0, len(text))
-			if(id_servo == 1):
-				servo = GPIO.PWM(17, 50)
-			else:
-				servo = GPIO.PWM(12, 50)
-				
-			servo.start(0)
-			time.sleep(1)
 			
-			servo.ChangeDutyCycle(6)
-			time.sleep(1)
-			if(id_servo == 1):
-				servo.ChangeDutyCycle(3)
-			else:
-				servo.ChangeDutyCycle(2)
-			time.sleep(10)
-			servo.ChangeDutyCycle(6)
-			time.sleep(1)
-			#duty = 2
-			#while duty <= 17:
-				#servo.ChangeDutyCycle(duty)
-				#time.sleep(1)
-				#duty = duty + 1
-			servo.stop()
 			if index_end > 0:
 				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
 				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte)
@@ -160,6 +138,30 @@ def cap_picture(id_servo):
 				data = get_response.json()
 				print(palte+'hello2')
 				print((data['status']))
+			if data['status'] == 'OK'
+				if(id_servo == 1):
+					servo = GPIO.PWM(17, 50)
+				else:
+					servo = GPIO.PWM(12, 50)
+				
+				servo.start(0)
+				time.sleep(1)
+				
+				servo.ChangeDutyCycle(6)
+				time.sleep(1)
+				if(id_servo == 1):
+					servo.ChangeDutyCycle(3)
+				else:
+					servo.ChangeDutyCycle(2)
+				time.sleep(10)
+				servo.ChangeDutyCycle(6)
+				time.sleep(1)
+			#duty = 2
+			#while duty <= 17:
+				#servo.ChangeDutyCycle(duty)
+				#time.sleep(1)
+				#duty = duty + 1
+				servo.stop()
 			cv2.destroyAllWindows()
 
 		cv2.destroyAllWindows()
