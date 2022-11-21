@@ -9,6 +9,7 @@ import json
 import pytesseract
 from PIL import Image
 rel = 0
+rel1 = 0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
@@ -86,7 +87,10 @@ def cap_picture(id_servo):
 	else:
 
  		detected = 1
- 		rel = 1
+ 		if id_servo == 0:
+ 			rel1 = 1
+ 		else:
+ 			rel = 1
 
 
 	if detected == 1:
@@ -184,11 +188,11 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		while (rel == 0) and (count1 < 10):
+		while (rel1 == 0) and (count1 < 10):
 			cap_picture(0)
 			count1 = count1 + 1
 		else:
-			rel = 0
+			rel1 = 0
 			count1 = 0
 		
 	if ir2 == 1:
