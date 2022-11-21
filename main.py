@@ -8,7 +8,7 @@ import requests
 import json
 import pytesseract
 from PIL import Image
-
+rel = 0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.OUT)
 GPIO.setup(12,GPIO.OUT)
@@ -86,6 +86,7 @@ def cap_picture(id_servo):
 	else:
 
  		detected = 1
+ 		rel = 1
 
 
 	if detected == 1:
@@ -170,6 +171,7 @@ while True:
 	time.sleep(3);
 	ir1 = GPIO.input(22)
 	ir2 = GPIO.input(23)
+	count = 0
 	if ir1 == 1:
 		
 		print('current value of pin', 22, 'is', GPIO.input(22))
@@ -179,7 +181,12 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		cap_picture(0)
+		while (rel == 0) and (count < 10):
+			cap_picture(0)
+			count = coutn + 1
+		else:
+			rel = 0
+			count = 0
 		
 	if ir2 == 1:
 		print('current value of pin', 23, 'is', GPIO.input(23))
@@ -189,6 +196,11 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		cap_picture(1)
+		while (rel == 0) and (count < 10):
+			cap_picture(1)
+			count = coutn + 1
+		else:
+			rel = 0
+			count = 0
 
 
