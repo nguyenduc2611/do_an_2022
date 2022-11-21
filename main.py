@@ -201,6 +201,7 @@ while True:
 		cv2.imwrite('anh_ngon.jpg', frame)
 		while (rel == 0):
 			print(count)
+			print(rel)
 			if(count < 10):
 				cap_picture(1)
 				count = count + 1
