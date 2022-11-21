@@ -198,9 +198,12 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		while (rel == 0) and (count < 10):
-			cap_picture(1)
-			count = count + 1
+		while (rel == 0):
+			if(count < 10):
+				cap_picture(1)
+				count = count + 1
+			else:
+				break;
 		else:
 			rel = 0
 			count = 0
