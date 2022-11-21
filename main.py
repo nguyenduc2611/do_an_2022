@@ -183,7 +183,7 @@ while True:
 		cv2.imwrite('anh_ngon.jpg', frame)
 		while (rel == 0) and (count < 10):
 			cap_picture(0)
-			count = coutn + 1
+			count = count + 1
 		else:
 			rel = 0
 			count = 0
@@ -198,7 +198,7 @@ while True:
 		cv2.imwrite('anh_ngon.jpg', frame)
 		while (rel == 0) and (count < 10):
 			cap_picture(1)
-			count = coutn + 1
+			count = count + 1
 		else:
 			rel = 0
 			count = 0
