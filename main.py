@@ -151,11 +151,13 @@ def cap_picture(id_servo):
 				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
 				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte)
 				print(palte)
+				print((data['status']))
 			else:
 				index_end = text.find(',', 0, len(text))
 				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
 				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte)
 				print(palte)
+				print((data['status']))
 			cv2.destroyAllWindows()
 
 		cv2.destroyAllWindows()
