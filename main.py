@@ -128,14 +128,14 @@ def cap_picture(id_servo):
 			
 			if index_end > 0:
 				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
-				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte)
+				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte+'&restaurantId=1234')
 				data = get_response.json()
 				print(palte+'hello')
 				print((data['status']))
 			else:
 				index_end = text.find(',', 0, len(text))
 				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
-				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte)
+				get_response = requests.get(url='https://parking-reservation00.herokuapp.com/api/requests?licensePlates='+palte+'&restaurantId=1234')
 				data = get_response.json()
 				print(palte+'hello2')
 				print((data['status']))
