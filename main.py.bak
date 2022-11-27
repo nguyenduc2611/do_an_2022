@@ -22,9 +22,6 @@ print('current value of pin', 22, 'is', GPIO.input(22))
 print('current value of pin', 23, 'is', GPIO.input(23))
 
 def cap_picture(id_servo):
-    
-	global rel
-	global rel1
 	cap.release()
 
 	img = cv2.imread('anh_ngon.jpg',cv2.IMREAD_COLOR)
