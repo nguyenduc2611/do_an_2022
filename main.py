@@ -181,12 +181,7 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		while (rel1 == 0) and (count1 < 10):
-			cap_picture(0)
-			count1 = count1 + 1
-		else:
-			rel1 = 0
-			count1 = 0
+		cap_picture(0)
 		
 	if ir2 == 1:
 		print('current value of pin', 23, 'is', GPIO.input(23))
@@ -195,16 +190,7 @@ while True:
 			print("Unable ")
 		ret, frame = cap.read()
 		cv2.imwrite('anh_ngon.jpg', frame)
-		while (rel == 0):
-			print(count)
-			print(rel)
-			if(count < 10):
-				cap_picture(1)
-				count = count + 1
-			else:
-				break;
-		else:
-			rel = 0
-			count = 0
+		cap_picture(1)
+	
 
 
