@@ -140,30 +140,30 @@ def cap_picture(id_servo):
 				print(palte+'hello')
 				print((data['status']))
 				print(rel)
-			if data['status'] == 'OK':
-				if(id_servo == 1):
-					servo = GPIO.PWM(17, 50)
-				else:
-					servo = GPIO.PWM(12, 50)
+				if data['status'] == 'OK':
+					if(id_servo == 1):
+						servo = GPIO.PWM(17, 50)
+					else:
+						servo = GPIO.PWM(12, 50)
 				
-				servo.start(0)
-				time.sleep(1)
+					servo.start(0)
+					time.sleep(1)
 				
-				servo.ChangeDutyCycle(6)
-				time.sleep(1)
-				if(id_servo == 1):
-					servo.ChangeDutyCycle(3)
-				else:
-					servo.ChangeDutyCycle(2)
-				time.sleep(10)
-				servo.ChangeDutyCycle(6)
-				time.sleep(1)
+					servo.ChangeDutyCycle(6)
+					time.sleep(1)
+					if(id_servo == 1):
+						servo.ChangeDutyCycle(3)
+					else:
+						servo.ChangeDutyCycle(2)
+					time.sleep(10)
+					servo.ChangeDutyCycle(6)
+					time.sleep(1)
 			#duty = 2
 			#while duty <= 17:
 				#servo.ChangeDutyCycle(duty)
 				#time.sleep(1)
 				#duty = duty + 1
-				servo.stop()
+					servo.stop()
 			cv2.destroyAllWindows()
 
 		cv2.destroyAllWindows()
