@@ -169,7 +169,6 @@ def cap_picture(id_servo):
 		cv2.destroyAllWindows()
 	
 while True:
-	time.sleep(3);
 	ir1 = GPIO.input(22)
 	ir2 = GPIO.input(23)
 	count1 = 0
