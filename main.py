@@ -140,14 +140,6 @@ def cap_picture(id_servo):
 				print(palte+'hello')
 				print((data['status']))
 				print(rel)
-			else:
-				index_end = text.find(',', 0, len(text))
-				palte = text[index_end-3]+text[index_end-2]+text[index_end-1]+text[index_end+1]+text[index_end+2]
-				get_response = requests.get(url='http://103.226.250.98:8080/api/requests?licensePlates='+palte+'&restaurantId=1234')
-				data = get_response.json()
-				print(palte+'hello2')
-				print((data['status']))
-				print(rel)
 			if data['status'] == 'OK':
 				if(id_servo == 1):
 					servo = GPIO.PWM(17, 50)
@@ -185,7 +177,6 @@ while True:
 	if ir1 == 1:
 		
 		print('current value of pin', 22, 'is', GPIO.input(22))
-		time.sleep(1)
 		cap = cv2.VideoCapture(0)
 		if not cap.isOpened():
 			print("Unable ")
@@ -200,7 +191,6 @@ while True:
 		
 	if ir2 == 1:
 		print('current value of pin', 23, 'is', GPIO.input(23))
-		time.sleep(1)
 		cap = cv2.VideoCapture(2)
 		if not cap.isOpened():
 			print("Unable ")
