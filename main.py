@@ -141,6 +141,7 @@ def cap_picture(id_servo):
 				print(palte+'hello')
 				print((data['status']))
 				print(rel)
+				print(" "+text)
 				if data['status'] == 'OK':
 					if(id_servo == 1):
 						servo = GPIO.PWM(17, 50)
