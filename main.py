@@ -130,7 +130,7 @@ def cap_picture(id_servo):
 		text = pytesseract.image_to_string(Cropped, config='--psm 11')
 
 		print("Detected Number is:",text)
-		print(text)
+		print(" "+text)
 		if(len(text) > 6):
 			index_end = text.find('.', 0, len(text))
 			
