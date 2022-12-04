@@ -129,8 +129,7 @@ def cap_picture(id_servo):
 
 		text = pytesseract.image_to_string(Cropped, config='--psm 11')
 
-		print("Detected Number is:",text)
-		print(" "+text)
+		print("Detected Number is:",type(text))
 		if(len(text) > 6):
 			index_end = text.find('.', 0, len(text))
 			
@@ -140,8 +139,6 @@ def cap_picture(id_servo):
 				data = get_response.json()
 				print(palte+'hello')
 				print((data['status']))
-				print(rel)
-				print(" "+text)
 				if data['status'] == 'OK':
 					if(id_servo == 1):
 						servo = GPIO.PWM(17, 50)
